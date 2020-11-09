@@ -32,7 +32,7 @@ class BankAccount():
             interest = round(self.balance * 0.00083, 2)
             self.balance += interest
         print(f'- Interest: 1% per year -\nTotal months of accrued interest: {str(months)}')
-
+        
     def print_receipt(self):
         account_num_str = (str(self.account_number))[-5:]
         print("--------------------------------------------")

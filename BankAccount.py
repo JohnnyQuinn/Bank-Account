@@ -24,7 +24,7 @@ class BankAccount():
 
     #print current balance and returns amount
     def get_balance(self):
-        return f'${round(self.balance, 2)}'
+        print(f'Your current balance is ${round(self.balance, 2)}')
 
     #calculates interest, 1%/yr
     def add_interest(self, months):
@@ -39,7 +39,7 @@ class BankAccount():
         print(self.full_name)
         print(f'Account No.: ****{account_num_str}')
         print(f'Routing No.: {self.routing_number}')
-        print(f'Balance: {self.get_balance()}')
+        self.get_balance()
 
 johnny = BankAccount('Johnny Quinn', 54652321)
 johnny.deposit(150)

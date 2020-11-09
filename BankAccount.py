@@ -14,22 +14,24 @@ class BankAccount():
     #subtracts amount from balance
     def withdraw(self, amount):
         if self.balance < amount: 
-            print(f'Insufficient funds.\n Overdraft fee: $10')
+            print(f'- Insufficient funds -\n- Overdraft fee: $10 -')
             self.balance -= 10
         else: 
-            self.balance +- amount
+            self.balance -= amount
             print(f'Amount Withdrawn: ${amount}')
 
         self.get_balance()
 
     #print current balance and returns amount
     def get_balance(self):
-        return f'${self.balance}'
+        return f'${round(self.balance, 2)}'
 
     #calculates interest, 1%/yr
-    def add_interest(self):
-        interest = round(self.balance * 0.00083, 2)
-        self.balance += interest
+    def add_interest(self, months):
+        for i in range(months):
+            interest = round(self.balance * 0.00083, 2)
+            self.balance += interest
+        print(f'- Interest: 1% per year -\nTotal months of accrued interest: {str(months)}')
 
     def print_receipt(self):
         account_num_str = (str(self.account_number))[-5:]
@@ -39,7 +41,20 @@ class BankAccount():
         print(f'Routing No.: {self.routing_number}')
         print(f'Balance: {self.get_balance()}')
 
-johnny = BankAccount('Johnny Quinn', 5465231)
+johnny = BankAccount('Johnny Quinn', 54652321)
 johnny.deposit(150)
-johnny.add_interest()
+johnny.add_interest(2)
 johnny.print_receipt()
+print('\n')
+
+yoko = BankAccount('Yoko Quinn', 56873921)
+yoko.deposit(7000)
+yoko.withdraw(8000)
+yoko.withdraw(560)
+yoko.print_receipt()
+print('\n')
+
+aldo = BankAccount('Aldo Cabara', 78534602)
+aldo.deposit(10000)
+aldo.add_interest(24)
+aldo.print_receipt()

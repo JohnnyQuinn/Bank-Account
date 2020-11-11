@@ -6,12 +6,15 @@ class BankAccount():
         self.account_number = random.randint(10000000, 99999999) # Randomly generated 8 digit account number
         self.routing_number = 546325981 # standardized routing number
         self.balance = 0
+        print(f'Account created for {self.full_name}')
+        self.print_separator()
     
     #add amount to balance
     def deposit(self, amount):
         self.balance += amount 
         print(f'Amount Deposited: ${amount}')
         self.get_balance()
+        self.print_separator()
 
     #subtracts amount from balance
     def withdraw(self, amount):
@@ -23,10 +26,12 @@ class BankAccount():
             print(f'Amount Withdrawn: ${amount}')
 
         self.get_balance()
+        self.print_separator()
 
     #prints current balance
     def get_balance(self):
         print(f'Balance: ${round(self.balance, 2)}')
+        return self.balance
 
     #calculates interest, 1%/yr
     def add_interest(self, months):
@@ -34,15 +39,20 @@ class BankAccount():
             interest = round(self.balance * 0.00083, 2)
             self.balance += interest
         print(f'- Interest: 1% per year -\nTotal months of accrued interest: {str(months)}')
+        self.print_separator()
         
     #prints name, account number, routing number, and balance related to the account
     def print_receipt(self):
         account_num_str = (str(self.account_number))[-4:] # only reveals last 4 numbers of the account number
-        print("--------------------------------------------")
         print(self.full_name)
         print(f'Account No.: ****{account_num_str}')
         print(f'Routing No.: {self.routing_number}')
         self.get_balance()
+
+    def print_separator(self):
+        print("--------------------------------------------")
+
+print('\n')
 
 johnny = BankAccount('Johnny Quinn')
 johnny.deposit(150)

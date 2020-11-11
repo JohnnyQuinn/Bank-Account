@@ -1,7 +1,7 @@
 import random
 
 class BankAccount():
-    def __init__(self, full_name, account_number):
+    def __init__(self, full_name):
         self.full_name = full_name
         self.account_number = random.randint(10000000, 99999999)
         self.routing_number = 546325981
@@ -43,20 +43,20 @@ class BankAccount():
         print(f'Routing No.: {self.routing_number}')
         self.get_balance()
 
-johnny = BankAccount('Johnny Quinn', 54652321)
+johnny = BankAccount('Johnny Quinn')
 johnny.deposit(150)
 johnny.add_interest(2)
 johnny.print_receipt()
 print('\n')
 
-yoko = BankAccount('Yoko Quinn', 56873921)
+yoko = BankAccount('Yoko Quinn')
 yoko.deposit(7000)
 yoko.withdraw(8000)
 yoko.withdraw(560)
 yoko.print_receipt()
 print('\n')
 
-aldo = BankAccount('Aldo Cabara', 78534602)
+aldo = BankAccount('Aldo Cabara')
 aldo.deposit(10000)
 aldo.add_interest(24)
 aldo.print_receipt()

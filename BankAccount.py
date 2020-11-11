@@ -1,7 +1,9 @@
+import random
+
 class BankAccount():
     def __init__(self, full_name, account_number):
         self.full_name = full_name
-        self.account_number = account_number
+        self.account_number = random.randint(10000000, 99999999)
         self.routing_number = 546325981
         self.balance = 0
     
@@ -24,7 +26,7 @@ class BankAccount():
 
     #print current balance and returns amount
     def get_balance(self):
-        print(f'Your current balance is ${round(self.balance, 2)}')
+        print(f'Balance: ${round(self.balance, 2)}')
 
     #calculates interest, 1%/yr
     def add_interest(self, months):
@@ -34,7 +36,7 @@ class BankAccount():
         print(f'- Interest: 1% per year -\nTotal months of accrued interest: {str(months)}')
         
     def print_receipt(self):
-        account_num_str = (str(self.account_number))[-5:]
+        account_num_str = (str(self.account_number))[-4:]
         print("--------------------------------------------")
         print(self.full_name)
         print(f'Account No.: ****{account_num_str}')
